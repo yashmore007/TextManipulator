@@ -75,8 +75,8 @@ export default function Form(props) {
     </form>
     <div className={`container ${props.PowerCg}`} >
       <h2 >your text summary</h2>
-      <p >{text.trim().split(" ").slice(1).length+1} words and {text.length-((text.trim().split(" ").length)-1)} characters</p>
-      <p >{0.008 * text.trim().split(" ").length} minutes required to read the above words</p>
+      <p >{text.trim().split(" ")=="" ? text.trim().split(" ").shift() : text.trim().split(" ").length} words and {text.length-((text.trim().split(" ").length)-1)} characters</p>
+      <p >{0.008 *( text.trim().split(" ").length-1)} minutes required to read the above words</p>
       <h1 >Preview</h1>
       <p >{text.length>0?text:"please enter in above box to preview here"}</p>
       <h3 >email extractor</h3>
