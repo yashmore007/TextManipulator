@@ -3,6 +3,12 @@ import Navbar from "./components/Navbar.js";
 import Form from "./components/Form.js";
 import About from "./components/About";
 import Alert from "./components/Alert";
+import{
+  BrowserRouter as Router,
+  Routes, 
+  Route,
+ 
+} from "react-router-dom";
 
 
 import { useState } from "react";
@@ -119,16 +125,23 @@ function App() {
   
     <>
 
-    
+     <Router>
+
+
       <Navbar setYellow={setYellow} setRed={setRed}  NavGreen={NavGreen} setGreen={setGreen} title="text" about="about" Bcolor={Bcolor} ToggleBg={ToggleBg} Tcolor={Tcolor} mode={mode} modecolor={modecolor} />
       <Alert alert={alert}/>
-      
+      <Routes>
 
-        <div className="container my-3">
-        <Form ButtonColor={ButtonColor} heading="Enter the text below" TextBg={TextBg} TextColor={TextColor} PowerCg={PowerCg}/>
-        </div>
+      
+       <Route path="/" element={<div className="container my-3">
+        <Form ButtonColor={ButtonColor} heading="Text- uppercase to lowercase ,lowercase to uppercase" TextBg={TextBg} TextColor={TextColor} PowerCg={PowerCg}/>
+        </div>} />
+
+        <Route path="/about" element={ <About Bcolor={Bcolor} TextColor={TextColor}/>}/>
+        </Routes>
+        
        
-     
+        </Router>
     </>
      
   );

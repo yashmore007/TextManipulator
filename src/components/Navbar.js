@@ -6,9 +6,9 @@ export default function navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg bg-${props.Bcolor} text-white`}>
       <div className="container-fluid   ">
-        <a className={`navbar-brand text-${props.Tcolor}`} href="#">
+        <Link className={`navbar-brand text-${props.Tcolor}`} to="/">
           {props.title}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,18 +23,18 @@ export default function navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className={`nav-link active text-${props.Tcolor}`}
                 aria-current="page"
-                href="#"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className={`nav-link text-${props.Tcolor}`} href="#">
+              <Link className={`nav-link text-${props.Tcolor}`} to="/about">
                 {props.about}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

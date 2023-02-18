@@ -60,25 +60,25 @@ export default function Form(props) {
           rows="12"
         ></textarea>
       </div>
-      <button className="btn btn-primary my-2" style={props.ButtonColor} onClick={upFunc}>
+      <button disabled={text.length===0} className="btn btn-primary my-2" style={props.ButtonColor} onClick={upFunc}>
         Uppercase
       </button>
-      <button className="btn btn-primary my-2 mx-2" style={props.ButtonColor} onClick={lowFunc}>
+      <button disabled={text.length===0}  className="btn btn-primary my-2 mx-2" style={props.ButtonColor} onClick={lowFunc}>
         lowercase
       </button>
-      <button className="btn btn-primary my-2 mx-2" style={props.ButtonColor} onClick={xMail}>
+      <button disabled={text.length===0}  className="btn btn-primary my-2 mx-2" style={props.ButtonColor} onClick={xMail}>
         extractMail
       </button>
-      <button className="btn btn-primary my-2 mx-2" style={props.ButtonColor} onClick={Reset}>
+      <button disabled={text.length===0}  className="btn btn-primary my-2 mx-2" style={props.ButtonColor} onClick={Reset}>
         Reset
       </button>
     </form>
     <div className={`container ${props.PowerCg}`} >
       <h2 >your text summary</h2>
-      <p >{text.trim().split(" ")=="" ? text.trim().split(" ").shift() : text.trim().split(" ").length} words and {text.length-((text.trim().split(" ").length)-1)} characters</p>
-      <p >{0.008 *( text.trim().split(" ").length-1)} minutes required to read the above words</p>
+      <p >{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+      <p >{0.008 *( text.split(" ").filter((element)=>{return element.length!=0}).length)} minutes required to read the above words</p>
       <h1 >Preview</h1>
-      <p >{text.length>0?text:"please enter in above box to preview here"}</p>
+      <p >{text.length>0?text:"Nothing to preview"}</p>
       <h3 >email extractor</h3>
       <p >{array} is a extracted mail from the text</p>
     </div>
